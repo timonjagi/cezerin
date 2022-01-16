@@ -10,5 +10,9 @@ export const AVAILABLE_PAYMENT_GATEWAYS = [
 	{
 		key: 'stripe-elements',
 		name: 'Stripe Elements'
+	},
+	{
+		key: 'lipa-na-mpesa',
+		name: 'Lipa Na M-Pesa'
 	}
 ];

@@ -4,6 +4,7 @@ import PaymentGatewaysService from '../services/settings/paymentGateways';
 import PayPalCheckout from './PayPalCheckout';
 import LiqPay from './LiqPay';
 import StripeElements from './StripeElements';
+import LipaNaMpesa from './LipaNaMpesa';
 
 const getOptions = orderId => {
 	return Promise.all([
@@ -37,6 +38,8 @@ const getPaymentFormSettings = orderId => {
 				return LiqPay.getPaymentFormSettings(options);
 			case 'stripe-elements':
 				return StripeElements.getPaymentFormSettings(options);
+			case 'lipa-na-mpesa':
+				return LipaNaMpesa.getPaymentFormSettings(options);
 			default:
 				return Promise.reject('Invalid gateway');
 		}
@@ -57,6 +60,8 @@ const paymentNotification = (req, res, gateway) => {
 				return PayPalCheckout.paymentNotification(options);
 			case 'liqpay':
 				return LiqPay.paymentNotification(options);
+			case 'lipa-na-mpesa':
+				return LipaNaMpesa.paymentNotification(options);
 			default:
 				return Promise.reject('Invalid gateway');
 		}
@@ -73,6 +78,7 @@ const processOrderPayment = async order => {
 	const gatewaySettings = await PaymentGatewaysService.getGateway(gateway);
 	const settings = await SettingsService.getSettings();
 
+	console.log(gateway, gatewaySettings);
 	switch (gateway) {
 		case 'stripe-elements':
 			return StripeElements.processOrderPayment({

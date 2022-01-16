@@ -16,6 +16,8 @@ const GatewaySettings = ({ gateway }) => {
 			return <LiqPay />;
 		case 'stripe-elements':
 			return <StripeElements />;
+		case 'lipa-na-mpesa':
+			return <LipaNaMpesa />;
 		default:
 			return null;
 	}
@@ -155,6 +157,44 @@ const StripeElements = props => {
 				component={TextField}
 				name="secret_key"
 				floatingLabelText="Secret key"
+				fullWidth={true}
+			/>
+		</div>
+	);
+};
+
+const LipaNaMpesa = props => {
+	return (
+		<div>
+			<Field
+				component={SelectField}
+				name="env"
+				floatingLabelText="Environment"
+				fullWidth={true}
+				autoWidth={true}
+			>
+				<MenuItem value="production" primaryText="production" />
+				<MenuItem value="sandbox" primaryText="sandbox" />
+			</Field>
+			<Field
+				component={TextField}
+				name="consumer_key"
+				floatingLabelText="Consumer Key"
+				fullWidth={true}
+			/>
+
+			<Field
+				component={TextField}
+				name="consumer_secret"
+				floatingLabelText="Consumer Secret"
+				fullWidth={true}
+			/>
+
+			<Field
+				component={TextField}
+				name="server_url"
+				floatingLabelText="Server URL"
+				hintText="https://<domain>/api/v1/notifications/lipanampesa"
 				fullWidth={true}
 			/>
 		</div>
