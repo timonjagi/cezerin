@@ -16,7 +16,7 @@ const getPaymentFormSettings = options => {
 		server_url: gatewaySettings.server_url
 	};
 
-	const form = getForm(params, gatewaySettings.private_key);
+	const form = getForm(params, gatewaySettings.consumer_secret);
 
 	const formSettings = {
 		data: form.data,
