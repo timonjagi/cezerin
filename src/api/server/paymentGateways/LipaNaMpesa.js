@@ -13,7 +13,8 @@ const getPaymentFormSettings = options => {
 		description: 'Order: ' + order.number,
 		order_id: order.id,
 		consumer_key: gatewaySettings.consumer_key,
-		server_url: gatewaySettings.server_url
+		server_url: gatewaySettings.server_url,
+		till_number: gatewaySettings.till_number
 	};
 
 	const form = getForm(params, gatewaySettings.consumer_secret);
