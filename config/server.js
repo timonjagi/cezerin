@@ -8,8 +8,8 @@ const dbCred =
 	dbUser.length > 0 || dbPass.length > 0 ? `${dbUser}:${dbPass}@` : '';
 
 const dbUrl =
-	process.env.DB_URL || `mongodb://${dbCred}${dbHost}:${dbPort}/${dbName}`;
-// `mongodb+srv://teebow:playthemaker@cluster0.cpcbn.mongodb.net/shop?retryWrites=true&w=majority`;
+	// 	process.env.DB_URL || `mongodb://${dbCred}${dbHost}:${dbPort}/${dbName}`;
+	`mongodb+srv://teebow:playthemaker@cluster0.cpcbn.mongodb.net/shop?retryWrites=true&w=majority`;
 
 module.exports = {
 	// used by Store (server side)
