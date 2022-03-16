@@ -9,7 +9,7 @@ const dbCred =
 
 const dbUrl =
 	// 	process.env.DB_URL || `mongodb://${dbCred}${dbHost}:${dbPort}/${dbName}`;
-	`mongodb+srv://teebow:playthemaker@cluster0.cpcbn.mongodb.net/shop?retryWrites=true&w=majority`;
+	`mongodb+srv://teebow:playthemaker@cluster0.cpcbn.mongodb.net/shop`;
 
 module.exports = {
 	// used by Store (server side)
